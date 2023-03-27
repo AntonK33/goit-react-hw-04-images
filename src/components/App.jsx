@@ -1,16 +1,24 @@
-export const App = () => {
+import { useState } from 'react';
+import ImageGallery from './ImageGallery/ImageGallery';
+import Searchbar from './Searchbar/Searchbar';
+import { AppWrapper } from './App.Styled';
+
+const App = () => {
+  const [name, setName] = useState('');
+  // state = {
+  //   name: '',
+  // };
+  const newSearch = name => {
+    setName(name);
+  };
+
+  // const { hits } = this.state;
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <AppWrapper>
+      {<Searchbar onSubmit={newSearch} />}
+      {<ImageGallery inputName={name} />}
+    </AppWrapper>
   );
 };
+
+export default App;
