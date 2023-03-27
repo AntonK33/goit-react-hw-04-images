@@ -8,7 +8,7 @@ import Loader from '../Loader/Loader';
 
 const ImageGallery = ({ inputName }) => {
   const [hits, setHits] = useState([]);
-  const [error, setError] = useState(null);
+
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [status, setStatus] = useState('idle');
@@ -37,7 +37,7 @@ const ImageGallery = ({ inputName }) => {
         setStatus('resolved');
       })
       .catch(error => {
-        setError(error);
+        console.log(error);
         setStatus('rejected');
       });
   }, [inputName, page]);
