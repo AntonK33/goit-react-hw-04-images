@@ -10,9 +10,6 @@ import {
 
 const Searchbar = ({ onSubmit }) => {
   const [name, setName] = useState('');
-  // state = {
-  //   name: '',
-  // };
 
   const searchName = e => {
     setName(e.currentTarget.value.toLowerCase());
